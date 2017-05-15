@@ -25,6 +25,7 @@ namespace WCFKostService
             if (composite.BoolValue)
             {
                 composite.StringValue += "Suffix";
+                Console.WriteLine("haha");
             }
             return composite;
         }
