@@ -9,7 +9,7 @@ namespace WCFKostService
     [DataContract]
     public class UserInfo
     {
-        string id, name, address, birthdate, nohp, card_type, card_number;
+        string id, name, address, birthdate, nohp, card_type, card_number, email, password;
 
         [DataMember]
         public string IDUser
@@ -54,6 +54,18 @@ namespace WCFKostService
         {
             get { return card_number; }
             set { card_number = value; }
+        }
+        [DataMember]
+        public string EmailUser
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        [DataMember]
+        public string PasswordUser
+        {
+            get { return password; }
+            set { password = value; }
         }
 
     }

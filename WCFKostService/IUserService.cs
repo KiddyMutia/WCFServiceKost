@@ -18,6 +18,9 @@ namespace WCFKostService
         List<UserInfo> getUserID(string nama);
 
         [OperationContract]
+        List<UserInfo> loginUser(string email,string password);
+
+        [OperationContract]
         string insertUser(UserInfo data);
 
         [OperationContract]

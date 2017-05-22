@@ -84,6 +84,43 @@ namespace WCFKostService
             return objList;
         }
 
+        public List<UserInfo> loginUser(string email,string password)
+        {
+            // kode get data from sql server..
+            Koneksi kon = new Koneksi();
+            SqlConnection sqlcon = kon.getConnection();
+            List<UserInfo> objList = new List<UserInfo>();
+            using (sqlcon)
+            {
+                sqlcon.Open();
+                string sql = "select * from tb_customer where email =  @email and password = @password ";
+                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                using (sqlcom)
+                {
+                    sqlcom.Parameters.AddWithValue("@email", email);
+                    sqlcom.Parameters.AddWithValue("@password", password);
+                    SqlDataReader dr = sqlcom.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        UserInfo obj = new UserInfo();
+                        obj.IDUser = dr.GetString(1);
+                        obj.NameUser = dr.GetString(2);
+                        //Convert Date Time to String.
+                        DateTime dt = Convert.ToDateTime(dr.GetDateTime(3));
+
+                        obj.BirthdateUser = dt.ToString("dd-MM-yyyy");
+                        obj.AddressUser = dr.GetString(4);
+                        obj.PhoneNumberUser = dr.GetString(5);
+                        obj.Card_typeUser = dr.GetString(6);
+                        obj.Card_numberUser = dr.GetString(7);
+                        objList.Add(obj);
+                    }
+                }
+                sqlcon.Close();
+            }
+            return objList;
+        }
+
         
 
 
@@ -98,7 +135,7 @@ namespace WCFKostService
             using (sqlcon)
             {
                 sqlcon.Open();
-                string sql = "insert tb_customer (name,birthdate,address,phonenumber,card_type,card_number) values(@nama, @birthdate, @alamat, @nohp, @cardtype, @cardnumber)";
+                string sql = "insert tb_customer (name,birthdate,address,phonenumber,card_type,card_number,email,password) values(@nama, @birthdate, @alamat, @nohp, @cardtype, @cardnumber, @email, @password)";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 using (sqlcom)
                 {
@@ -108,6 +145,8 @@ namespace WCFKostService
                     sqlcom.Parameters.AddWithValue("@nohp", data.PhoneNumberUser);
                     sqlcom.Parameters.AddWithValue("@cardtype", data.Card_typeUser);
                     sqlcom.Parameters.AddWithValue("@cardnumber", data.Card_numberUser);
+                    sqlcom.Parameters.AddWithValue("@email", data.EmailUser);
+                    sqlcom.Parameters.AddWithValue("@password", data.PasswordUser);
                     int res = sqlcom.ExecuteNonQuery();
                     msg = (res != 0 ? "Data has been saved." : "Oops, something went wrong.");
                 }
