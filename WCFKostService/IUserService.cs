@@ -15,7 +15,7 @@ namespace WCFKostService
         List<UserInfo> getUser();
 
         [OperationContract]
-        List<UserInfo> getUserID();
+        List<UserInfo> getUserID(string nama);
 
         [OperationContract]
         string insertUser(UserInfo data);

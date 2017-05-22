@@ -48,31 +48,34 @@ namespace WCFKostService
             return objList;
         }
 
-        public List<UserInfo> getUserID()
+        public List<UserInfo> getUserID(string nama)
         {
             // kode get data from sql server..
             Koneksi kon = new Koneksi();
-            UserInfo data = new UserInfo();
             SqlConnection sqlcon = kon.getConnection();
             List<UserInfo> objList = new List<UserInfo>();
             using (sqlcon)
             {
                 sqlcon.Open();
-                string sql = "select * from tb_customer where name like '%@nama%' ";
+                string sql = "select * from tb_customer where name like @nama ";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 using (sqlcom)
                 {
-                    sqlcom.Parameters.AddWithValue("@nama", data.NameUser);
+                    sqlcom.Parameters.AddWithValue("@nama", '%'+nama+'%');
                     SqlDataReader dr = sqlcom.ExecuteReader();
                     while (dr.Read())
                     {
                         UserInfo obj = new UserInfo();
                         obj.IDUser = dr.GetString(1);
                         obj.NameUser = dr.GetString(2);
-                        obj.AddressUser = dr.GetString(3);
-                        obj.BirthdateUser = dr.GetString(4);
-                        obj.Card_typeUser = dr.GetString(5);
-                        obj.Card_numberUser = dr.GetString(6);
+                        //Convert Date Time to String.
+                        DateTime dt = Convert.ToDateTime(dr.GetDateTime(3));
+
+                        obj.BirthdateUser = dt.ToString("dd-MM-yyyy");
+                        obj.AddressUser = dr.GetString(4);
+                        obj.PhoneNumberUser = dr.GetString(5);
+                        obj.Card_typeUser = dr.GetString(6);
+                        obj.Card_numberUser = dr.GetString(7);
                         objList.Add(obj);
                     }
                 }
