@@ -1,0 +1,5 @@
+C:\Users\Kid\Documents\Visual Studio 2010\Projects\WCFKostService\WCFKostService\bin\WCFKostService.dll
+C:\Users\Kid\Documents\Visual Studio 2010\Projects\WCFKostService\WCFKostService\bin\WCFKostService.pdb
+C:\Users\Kid\Documents\Visual Studio 2010\Projects\WCFKostService\WCFKostService\obj\Debug\WCFKostService.dll
+C:\Users\Kid\Documents\Visual Studio 2010\Projects\WCFKostService\WCFKostService\obj\Debug\WCFKostService.pdb
+C:\Users\Kid\documents\visual studio 2010\Projects\WCFKostService\WCFKostService\obj\Debug\WCFKostService.csprojResolveAssemblyReference.cache

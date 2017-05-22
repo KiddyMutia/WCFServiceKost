@@ -6,9 +6,10 @@ using System.Runtime.Serialization;
 
 namespace WCFKostService
 {
-    public class User
+    [DataContract]
+    public class UserInfo
     {
-        string id, name, address, birthdate, card_type, card_number;
+        string id, name, address, birthdate, nohp, card_type, card_number;
 
         [DataMember]
         public string IDUser
@@ -27,6 +28,13 @@ namespace WCFKostService
         {
             get { return address; }
             set { address = value; }
+        }
+
+        [DataMember]
+        public string PhoneNumberUser
+        {
+            get { return nohp; }
+            set { nohp = value; }
         }
 
         [DataMember]
