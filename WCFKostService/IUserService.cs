@@ -15,7 +15,10 @@ namespace WCFKostService
         List<UserInfo> getUser();
 
         [OperationContract]
-        List<UserInfo> getUserID(string nama);
+        List<UserInfo> getUserFromID(string id);
+
+        [OperationContract]
+        List<UserInfo> getUserFromName(string nama);
 
         [OperationContract]
         List<UserInfo> loginUser(string email,string password);
