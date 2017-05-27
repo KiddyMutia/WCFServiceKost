@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WCFKostService.RoomTypeService" CodeBehind="RoomTypeService.svc.cs" %>

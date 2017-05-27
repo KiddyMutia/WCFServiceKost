@@ -71,6 +71,7 @@
       <DependentUpon>MonthPaidService.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomTypeInfo.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>
