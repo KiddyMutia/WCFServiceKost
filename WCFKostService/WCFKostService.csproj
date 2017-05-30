@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MonthPaidService.svc" />
+    <Content Include="RoomTypeService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IMonthPaidService.cs" />
+    <Compile Include="IRoomTypeService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="MonthPaidInfo.cs" />
@@ -72,6 +74,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomTypeInfo.cs" />
+    <Compile Include="RoomTypeService.svc.cs">
+      <DependentUpon>RoomTypeService.svc</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>

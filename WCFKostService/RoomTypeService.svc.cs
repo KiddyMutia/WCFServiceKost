@@ -67,6 +67,36 @@ namespace WCFKostService
             return objList;
         }
 
+        public List<RoomTypeInfo> getReservation(string id)
+        {
+            // kode get data from sql server..
+            Koneksi kon = new Koneksi();
+            SqlConnection sqlcon = kon.getConnection();
+            List<RoomTypeInfo> objList = new List<RoomTypeInfo>();
+            using (sqlcon)
+            {
+                sqlcon.Open();
+                string sql = "select * from tb_room_type where id_room_type = @id";
+                SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
+                using (sqlcom)
+                {
+                    sqlcom.Parameters.AddWithValue("@id", id);
+                    SqlDataReader dr = sqlcom.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        RoomTypeInfo obj = new RoomTypeInfo();
+                        obj.IDRoomType = dr.GetString(1);
+                        obj.TipeRoomType = dr.GetString(2);
+                        obj.PriceRoomType = (int)dr.GetInt64(3);
+                        obj.InfoRoomType = dr.GetString(4);
+                        objList.Add(obj);
+                    }
+                }
+                sqlcon.Close();
+            }
+            return objList;
+        }
+
 
     }
 }

@@ -16,5 +16,8 @@ namespace WCFKostService
 
         [OperationContract]
         List<RoomTypeInfo> getRoomType();
+
+        [OperationContract]
+        List<RoomTypeInfo> getReservation(string id);
     }
 }

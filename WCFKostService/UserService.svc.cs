@@ -150,6 +150,8 @@ namespace WCFKostService
                         obj.PhoneNumberUser = dr.GetString(5);
                         obj.Card_typeUser = dr.GetString(6);
                         obj.Card_numberUser = dr.GetString(7);
+                        obj.EmailUser = dr.GetString(8);
+                        obj.PasswordUser = dr.GetString(9);
                         objList.Add(obj);
                     }
                 }
