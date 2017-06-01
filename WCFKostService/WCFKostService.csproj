@@ -56,6 +56,7 @@
     <Content Include="MonthPaidService.svc" />
     <Content Include="ReservationService.svc" />
     <Content Include="RoomTypeService.svc" />
+    <Content Include="TransactionService.svc" />
     <Content Include="UserService.svc" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -74,6 +75,7 @@
     <Compile Include="IMonthPaidService.cs" />
     <Compile Include="IReservationService.cs" />
     <Compile Include="IRoomTypeService.cs" />
+    <Compile Include="ITransactionService.cs" />
     <Compile Include="IUserService.cs" />
     <Compile Include="Koneksi.cs" />
     <Compile Include="MonthPaidInfo.cs" />
@@ -90,6 +92,9 @@
       <DependentUpon>RoomTypeService.svc</DependentUpon>
     </Compile>
     <Compile Include="TransactionInfo.cs" />
+    <Compile Include="TransactionService.svc.cs">
+      <DependentUpon>TransactionService.svc</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs" />
     <Compile Include="UserService.svc.cs">
       <DependentUpon>UserService.svc</DependentUpon>

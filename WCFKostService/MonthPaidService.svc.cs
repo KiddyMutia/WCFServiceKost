@@ -20,7 +20,7 @@ namespace WCFKostService
             using (sqlcon)
             {
                 sqlcon.Open();
-                string sql = "select c.id_transaction,b.name,a.date_time,a.total,a.info from tb_monthpaid a inner join tb_transaction c on c.id_transaction = a.id_transaction inner join tb_room b on c.id_room = b.id_room where c.id_transaction = @id";
+                string sql = "select c.id_transaction,b.name as kamar,a.date_time,a.total,a.info from tb_monthpaid a inner join tb_transaction c on c.id_transaction = a.id_transaction inner join tb_customer d on d.id_customer = c.id_customer inner join tb_room b on c.id_room = b.id_room where d.id_customer = @id order by date_time DESC";
                 SqlCommand sqlcom = new SqlCommand(sql, sqlcon);
                 using (sqlcom)
                 {
