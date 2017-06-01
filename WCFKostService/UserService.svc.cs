@@ -160,12 +160,7 @@ namespace WCFKostService
             return objList;
         }
 
-        
-
-
-
-
-
+    
         public string insertUser(UserInfo data)
         {
             Koneksi kon = new Koneksi();
